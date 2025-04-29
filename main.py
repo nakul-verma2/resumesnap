@@ -8,7 +8,7 @@ import os
 
 app = Flask(__name__, template_folder="html")
 
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = '/tmp/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def format_to_html(text: str) -> str:
