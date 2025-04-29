@@ -42,14 +42,6 @@ An intelligent web application that extracts resume details, analyzes them based
 ![Homepage2](screenshots/page.png)
 ![Uploadpage](screenshots/upload.png)
 
-
----
-
-## 🎥 Demo Video
-
-👉 [Click here to watch the demo video](https://drive.google.com/file/d/1ZmTgWnaG1tBSCNxlkzoaDCeKYGoKhOjr/view?usp=sharing)
-
-
 ---
 
 ## 🔧 How to Run Locally
