@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ResumeSnap Tools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,800&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #2f482c;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .subtitle {
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      margin-top: 20px;
+      font-size: 1.7em;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .subtitle::before {
+      content: "-";
+      color: #f4a825;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .subtitle:hover {
+      color: #e0e0e0;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+
+    .title {
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-weight: 800;
+      color: #f4a825;
+      font-size: 5em;
+      margin: 10px 0;
+      transition: all 0.3s ease;
+    }
+
+    .title:hover {
+      transform: scale(1.02);
+      color: #f5b02d;
+    }
+
+    .description {
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-weight: 800;
+      font-size: 3em;
+      margin-bottom: 30px;
+    }
+
+    .slider-wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .slider-container {
+      display: flex;
+      width: fit-content;
+      animation: scroll 40s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .tool-set {
+      display: flex;
+    }
+
+    .tool-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 20px;
+    }
+
+    .tool-card {
+      background-color: #f4a825;
+      border-radius: 120px;
+      width: 250px;
+      flex-shrink: 0;
+      text-align: center;
+      padding-bottom: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .tool-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(244, 168, 37, 0.5);
+    }
+
+    .tool-inner {
+      background-color: #2f482c;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 20px auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tool-inner img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+
+    .tool-percentage {
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-size: 2.5em;
+      font-weight: 800;
+      margin-top: 10px;
+    }
+
+    .tool-name {
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-size: 2em;
+      font-weight: 800;
+      margin-top: 8px;
+      color: white;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .tool-name:hover {
+      color: #f4f4f4;
+      transform: translateY(-2px);
+    }
+
+    @media screen and (max-width: 768px) {
+      .title {
+        font-size: 3em;
+      }
+      .description {
+        font-size: 2em;
+      }
+      .tool-card {
+        width: 200px;
+        padding-bottom: 20px;
+      }
+      .tool-inner {
+        width: 150px;
+        height: 150px;
+      }
+      .tool-percentage {
+        font-size: 2em;
+      }
+      .tool-name {
+        font-size: 1.6em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="subtitle">Our Favorite Tools</div>
+  <div class="title">Exploring The Tools</div>
+  <div class="description">Powering the Tech Behind ResumeSnap</div>
+
+  <div class="slider-wrapper">
+    <div class="slider-container">
+      <div class="tool-set">
+        <!-- TOOL 1 -->
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner">
+              <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000">
+            </div>
+            <div class="tool-percentage">98%</div>
+          </div>
+          <div class="tool-name">Python</div>
+        </div>
+
+        <!-- TOOL 2 -->
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner">
+              <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000">
+            </div>
+            <div class="tool-percentage">97%</div>
+          </div>
+          <div class="tool-name">HTML</div>
+        </div>
+
+        <!-- TOOL 3 -->
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner">
+              <img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000">
+            </div>
+            <div class="tool-percentage">80%</div>
+          </div>
+          <div class="tool-name">CSS</div>
+        </div>
+
+        <!-- TOOL 4 -->
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner">
+              <img src="https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000">
+            </div>
+            <div class="tool-percentage">75%</div>
+          </div>
+          <div class="tool-name">MySQL</div>
+        </div>
+
+        <!-- TOOL 5 -->
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner">
+              <img src="https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png&color=000000">
+            </div>
+            <div class="tool-percentage">50%</div>
+          </div>
+          <div class="tool-name">Figma</div>
+        </div>
+
+        <!-- TOOL 6 -->
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner">
+              <img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000">
+            </div>
+            <div class="tool-percentage">80%</div>
+          </div>
+          <div class="tool-name">Java</div>
+        </div>
+      </div>
+
+      <!-- Duplicate for infinite scroll -->
+      <div class="tool-set">
+        <!-- Duplicate same tools -->
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner"><img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000"></div>
+            <div class="tool-percentage">98%</div>
+          </div>
+          <div class="tool-name">Python</div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner"><img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000"></div>
+            <div class="tool-percentage">97%</div>
+          </div>
+          <div class="tool-name">HTML</div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner"><img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000"></div>
+            <div class="tool-percentage">80%</div>
+          </div>
+          <div class="tool-name">CSS</div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner"><img src="https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000"></div>
+            <div class="tool-percentage">75%</div>
+          </div>
+          <div class="tool-name">MySQL</div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner"><img src="https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png&color=000000"></div>
+            <div class="tool-percentage">80%</div>
+          </div>
+          <div class="tool-name">React</div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-card">
+            <div class="tool-inner"><img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000"></div>
+            <div class="tool-percentage">80%</div>
+          </div>
+          <div class="tool-name">Java</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ResumeSnap Footer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&family=Merriweather:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    footer {
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer h2 {
+      font-size: 36px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 10px;
+    }
+
+    footer h3 {
+      font-family: 'Merriweather', serif;
+      font-weight: 600;
+      font-size: 22px;
+      margin-left: 10px;
+    }
+
+    footer p {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #999;
+      font-size: 16px;
+    }
+
+    footer ul li {
+      margin-bottom: 12px;
+    }
+
+    footer ul li a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s;
+    }
+
+    footer ul li a:hover {
+      color: #000;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .logo-circle {
+      background-color: #FFA726;
+      color: #000;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-icons img {
+      width: 42px;
+      height: 42px;
+      transition: transform 0.3s;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #ccc;
+      margin: 20px 0 30px 0;
+    }
+
+    /* Responsive fix */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dummy sections for anchor scroll targets -->
+  <section id="home" style="height: 100px;"></section>
+  <section id="services" style="height: 100px;"></section>
+  <section id="about" style="height: 100px;"></section>
+  <section id="tools" style="height: 100px;"></section>
+  <section id="faqs" style="height: 100px;"></section>
+
+  <footer>
+    
+    <!-- Heading -->
+    <h2>
+      <span style="color: rgb(52,76,54);">Let’s </span>
+      <span style="color: rgb(250,173,27);">Connect </span>
+      <span style="color: rgb(52,76,54);">There</span>
+    </h2>
+
+    <!-- Divider -->
+    <hr>
+
+    <!-- Content -->
+    <div class="footer-container">
+
+      <!-- Left Column -->
+      <div style="flex: 1 1 300px;">
+        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+          <div class="logo-circle">RS</div>
+          <h3>ResumeSnap</h3>
+        </div>
+        <p>
+          Empowering job seekers with AI-driven resume reviews, personalized job matching, interview simulations, and resume scoring—all in one platform.
+        </p>
+
+        <!-- Social Icons -->
+        <div class="social-icons">
+          <a href="#"><img src="https://media-hosting.imagekit.io/4d16d70a021a46fc/facebook.png?Expires=1839772555&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=z2W-mzJ5-M1D4PO9BEMUS75QC4VVSOm6UEvv0FIrsyZ5R5tDoCHXZ5wzrB4Rl11YZ9Cz0JS8WJBNTWtjBkZyluVwUigZQqPri7t3s64~oYNAnSd3DOH1KKliN~dw6AtOis6rzGXknoFmLS49eEK2RY5iElBIMOaIW6dVFyo3Ru34jYYTLu8XITh6kqSn70R5CCgQ1a69tapsnSFqmcbRRZckbqZz6B5QUF7GDDHSFSoauMzCVIiTThFgxuJBSAPibaIj-96QNEjSEF~pS6TanW69E81U6~wDopCWVoU-cnwh59MLc4RF7Da8yAQIqngZWXrAaIjSc5fHmxtMJFdZrQ__" alt="Facebook"></a>
+          <a href="#"><img src="https://media-hosting.imagekit.io/211c8748d6ca488d/youtube.png?Expires=1839772555&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=f2Pij2aNpLRtPAyK5T32l50ikFE~XfebPmYK-Xwgw7a2mpaLmJy28TWvDxEM~eSn9-smWV-sUuP7Cb-PwkLCiTdzStBE4T8n2tJKfxAK4JSHOOAc5y6o7TTwkO7xwxDY1V~~5kZVFuU-NMSrmUXB~AEuddvni6XMtcyd1Rk5gewSdKhoRHYkwEs51E-7kwdksRybVBH1JR3iFJLMordYGQIekkDEI9t-zgGCE-jW~sDngoN089mYIkrtsgzbVroJlNYZ3uvu6nIv1eUXB4ALjpY~FemV8gVksJMvCtoNZccqpBwTj053bmWU-Gimj7keeKCvYce2FZv8jhM152MDVg__" alt="YouTube"></a>
+          <a href="#"><img src="https://media-hosting.imagekit.io/4dcf547ed3374156/twitter.png?Expires=1839772555&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=RsFZR1Y2zF2BX75vnyJJRVtZ52XBykFc93o9opJ~n39h~uwkpbYrpUcyUySKbXWV4Y03cHwUdtmN620Sd-~kfJIwzQ78eWx6iWv07B2~6qAWDpSW~VCVYoj911neb7PYSLBOhkofD1CxFV3c71cup7dkBi0-CxrKaRrWd7SRtBaUHXpZAvKDb-c1AcosnLnu5A9cwCW4mV0A~VvposEnqNM2fnIE5cuXhBXV1Q2bGRAMzDGOt~N2SDkAD5sCe9TvXf8mS0yKZ87WY2NetjOxyprKa3Bro15oejOLNiEvDoIG9iESLZHtGcb5ylxCGofE0jiDsnl1P8fl2rLp5Q4sjw__" alt="Twitter"></a>
+          <a href="#"><img src="https://media-hosting.imagekit.io/399ddd5270184010/instagram.png?Expires=1839772555&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=OiT9peLodTCRq6IJnOOC~0iz6CN0UNMozBY-0WQsNVrQ6Ur1MV8o6G-5n4yGBXBiQ9byfVVnpwtLUZ4-6~3ePaSebyMjV0Uf7nHUNPf178OZyQ8L8jNyOzHHQ3Dp5brpl3jY6imSFom2GP8AFYAoVvzwB6xPQ~94kcu0HG8ky9ivkafZMPw2zJqc0uQYPgkjCpM52YJjBycNKe0ZORcdT6-4-Xe0VqhgkGqm1y8AYF1obQMdeeLprjo~8CkGUzbSdRDorGEtC9uyzBAEfgT1T3sM6HI4LVVPqENkgNXdqk418s7pNr5-NWC4kPIj32eOv6aigGXXXOKFObRkTnUNbA__" alt="Instagram"></a>
+        </div>
+      </div>
+
+      <!-- Middle Column: Navigation -->
+      <div style="flex: 1 1 160px;">
+        <h4 style="font-family: 'Merriweather', serif; font-size: 18px; font-weight: 600; color: rgb(250,173,27); margin-bottom: 20px;">Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Right Column: Contact -->
+      <div style="flex: 1 1 220px;">
+        <h4 style="font-family: 'Merriweather', serif; font-size: 18px; font-weight: 600; color: rgb(250,173,27); margin-bottom: 20px;">Contact</h4>
+        <p>+0123-456-789</p>
+        <p>www.resumesnap.com</p>
+        <p>resumesnap@gmail.com</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

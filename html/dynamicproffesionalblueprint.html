@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume - Dynamic</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .resume-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 20px 30px;
+    }
+    .header {
+      background: linear-gradient(135deg, #007bff, #00d4ff);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #007bff;
+      border-bottom: 1px solid #007bff;
+      padding-bottom: 3px;
+      margin-top: 20px;
+    }
+    .skill-list li {
+      background: #e9ecef;
+      padding: 5px 10px;
+      border-radius: 15px;
+      margin: 3px;
+      display: inline-block;
+      font-size: 0.8rem;
+    }
+    .print-button {
+      text-align: center;
+      margin: 20px;
+    }
+    ul#projects {
+      padding-left: 20px;
+    }
+    ul#projects li::marker {
+      color: #007bff;
+    }
+    #projects li {
+      font-size: 1rem; /* Match other section font size */
+    }
+  </style>
+</head>
+<body>
+  <div id="resume" class="resume-container">
+    <!-- Header -->
+    <div class="header">
+      <h1 id="name">Loading...</h1>
+      <p id="tagline" class="mb-0"></p>
+    </div>
+
+    <!-- Contact -->
+    <div class="text-center mb-3">
+      <span id="email">Email: -</span> |
+      <span id="phone">Phone: -</span>
+    </div>
+
+    <!-- Sections -->
+    <div>
+      <div id="summary-section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p id="summary">Loading...</p>
+      </div>
+
+      <div id="skills-section">
+        <h2 class="section-title">Skills</h2>
+        <ul class="skill-list" id="skills"></ul>
+      </div>
+
+      <div id="experience-section">
+        <h2 class="section-title">Work Experience</h2>
+        <div id="experience"></div>
+      </div>
+
+      <div id="education-section">
+        <h2 class="section-title">Education</h2>
+        <div id="education"></div>
+      </div>
+
+      <div id="projects-section">
+        <h2 class="section-title">Projects</h2>
+        <ul id="projects"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="print-button">
+    <button class="btn btn-primary" onclick="downloadPDF()">Download PDF</button>
+  </div>
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+  <script>
+    let resumeData = {{ resume_data | tojson | safe }};
+
+    function populateResume() {
+      if (!resumeData) return;
+
+      const safe = val => val ? val.trim() : "";
+
+      document.getElementById("name").textContent = safe(resumeData.name) || "";
+      document.getElementById("tagline").textContent = safe(resumeData.tagline) || "";
+
+      document.getElementById("email").innerHTML = resumeData.email
+        ? `Email: <a href="mailto:${resumeData.email}">${resumeData.email}</a>` : "";
+
+      document.getElementById("phone").textContent = resumeData.phone
+        ? `Phone: ${resumeData.phone}` : "";
+
+      document.getElementById("summary").textContent = safe(resumeData.summary) || "";
+      if (!resumeData.summary) document.getElementById("summary-section").style.display = "none";
+
+      // Skills
+      const skillsList = document.getElementById("skills");
+      skillsList.innerHTML = "";
+      if (resumeData.skills?.length) {
+        resumeData.skills.forEach(skill => {
+          const li = document.createElement("li");
+          li.textContent = skill;
+          skillsList.appendChild(li);
+        });
+      } else {
+        document.getElementById("skills-section").style.display = "none";
+      }
+
+      // Work Experience
+      const experience = document.getElementById("experience");
+      experience.innerHTML = "";
+      if (resumeData.work_experience?.length) {
+        resumeData.work_experience.forEach(exp => {
+          const div = document.createElement("div");
+          const [title, ...desc] = exp.split(" - ");
+          div.innerHTML = `
+            <h5>${safe(title)}</h5>
+            <p>${safe(desc.join(" - "))}</p>
+          `;
+          experience.appendChild(div);
+        });
+      } else {
+        document.getElementById("experience-section").style.display = "none";
+      }
+
+      // Education
+      const education = document.getElementById("education");
+      education.innerHTML = "";
+      if (resumeData.education?.length) {
+        resumeData.education.forEach(edu => {
+          const [degree, institution] = edu.split(" from ");
+          if (degree) {
+            const div = document.createElement("div");
+            div.innerHTML = `
+              <h5>${safe(degree)}</h5>
+              ${institution ? `<p>${safe(institution)}</p>` : ""}
+            `;
+            education.appendChild(div);
+          }
+        });
+      } else {
+        document.getElementById("education-section").style.display = "none";
+      }
+
+      // ✅ Updated Projects Section
+      // ✅ Updated Projects Section (robust for ":" or "|")
+        const projects = document.getElementById("projects");
+        projects.innerHTML = "";
+        if (resumeData.projects?.length) {
+        resumeData.projects.forEach(project => {
+            const li = document.createElement("li");
+            if (project.includes(":") || project.includes("|")) {
+            const separator = project.includes(":") ? ":" : "|";
+            const [title, ...rest] = project.split(separator);
+            li.innerHTML = `<strong>${title.trim()}</strong>: ${rest.join(separator).trim()}`;
+            } else {
+            li.textContent = project;
+            }
+            projects.appendChild(li);
+        });
+        } else {
+        document.getElementById("projects-section").style.display = "none";
+        }
+
+    }
+
+    function downloadPDF() {
+      const element = document.getElementById("resume");
+      const opt = {
+        margin: [0.2, 0.2, 0.2, 0.2],
+        filename: 'resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, scrollY: 0 },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    document.addEventListener("DOMContentLoaded", populateResume);
+  </script>
+</body>
+</html>

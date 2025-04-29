@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ResumeSnap FAQs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sitka+Text:wght@600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #314d34;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    :root {
+      --primary-color: #344c36;
+      --accent-color: #f4a800;
+      --highlight-color: #f1c40f;
+      --text-light: #d2cfcf;
+      --text-dark: #333;
+      --white: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .container {
+      max-width: 800px;
+      width: 90%;
+      padding: 40px 20px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 0.3s both;
+    }
+
+    .faq-header {
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      justify-content: center;
+      opacity: 0;
+      animation: slideInLeft 0.8s ease-out 0.5s forwards;
+    }
+
+    .faq-header::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 6px;
+      background-color: var(--accent-color);
+      margin-right: 10px;
+      border-radius: 3px;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-header:hover::before {
+      transform: scaleX(1.2);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      font-weight: 800;
+      margin-top: 10px;
+      font-family: 'Montserrat', sans-serif;
+      opacity: 0;
+      animation: slideInLeft 0.8s ease-out 0.7s forwards;
+    }
+
+    h2 span {
+      color: var(--accent-color);
+      font-weight: 800;
+      position: relative;
+    }
+
+    h2 span::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent-color);
+      opacity: 0.3;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    h2 span:hover::after {
+      transform: scaleX(1);
+    }
+
+    .faq {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .faq-item {
+      background-color: #3d5540;
+      margin-bottom: 16px;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-item.active {
+      background-color: #f7a420;
+    }
+
+    .faq-question {
+      padding: 20px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .faq-item.active .faq-question {
+      color: black;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: 'Sitka Text', serif;
+      padding: 0 20px;
+      transition: 
+        max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 0.4s ease-out,
+        transform 0.4s ease-out,
+        padding 0.3s ease-out;
+      color: rgb(39,83,23);
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 0 20px 20px;
+      max-height: 1000px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toggle-icon {
+      font-size: 1.8rem;
+      font-weight: 300;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .plus, .minus {
+      position: absolute;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .plus {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+
+    .minus {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+
+    .faq-item.active .plus {
+      transform: rotate(180deg);
+      opacity: 0;
+    }
+
+    .faq-item.active .minus {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 15px;
+      }
+
+      .faq-header {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .faq-question {
+        font-size: 1rem;
+      }
+
+      .faq-answer {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .faq-header {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .faq-item {
+        margin-bottom: 12px;
+      }
+
+      .faq-question {
+        padding: 15px;
+      }
+
+      .faq-answer {
+        padding: 0 15px 15px;
+      }
+    }
+
+    /* Accessibility: Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="faq-header">FAQs</div>
+  <h2>Questions? <span>Look here.</span></h2>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-question">
+        What services does ResumeSnap offer?
+        <div class="toggle-icon">
+          <span class="plus">+</span>
+          <span class="minus">−</span>
+        </div>
+      </div>
+      <div class="faq-answer">
+        ResumeSnap supercharges your job hunt with:<br><br>
+        Resume Review – Pinpointed, pro-level feedback that makes your resume impossible to ignore.<br>
+        Resume Scoring – Instant AI-powered scores that reveal exactly how your resume stacks up.<br>
+        Job Matching – Smart, tailored job recommendations so you never waste time hunting.<br><br>
+        Resume Making – Create stunning, recruiter-ready resumes in minutes — no guesswork needed.
+      </div>
+    </div>
+
+    <div class="faq-item active">
+      <div class="faq-question">
+        What specific problem does ResumeSnap solve, and for whom?
+        <div class="toggle-icon">
+          <span class="plus">+</span>
+          <span class="minus">−</span>
+        </div>
+      </div>
+      <div class="faq-answer">
+        ResumeSnap helps students and early-career professionals improve their chances of getting hired by offering AI-driven resume reviews, job matching, interview practice, and scoring—all in one platform.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        What makes ResumeSnap different from other resume tools?
+        <div class="toggle-icon">
+          <span class="plus">+</span>
+          <span class="minus">−</span>
+        </div>
+      </div>
+      <div class="faq-answer">
+        ResumeSnap isn't just another resume builder. It scores your resume, matches you with the perfect jobs, and helps you prepare for interviews — all in one platform.<br>
+        With AI-driven feedback, real-world job matching, and personalized insights, we make sure you're not just applying — you're getting noticed.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        What are supported resume formats?
+        <div class="toggle-icon">
+          <span class="plus">+</span>
+          <span class="minus">−</span>
+        </div>
+      </div>
+      <div class="faq-answer">
+        ResumeSnap supports the most common and professional formats, including:<br><br>
+        IMAGE (JPEG, PNG, JPG, HEIF, WEBP etc)<br>
+        PDF (Preferred for professional submissions)<br>
+        DOCX (Microsoft Word)<br>
+        TXT (Plain text for basic editing)<br>
+        RTF (Rich Text Format)<br><br>
+        Upload your resume in any of these formats, and we'll take care of the rest!
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    // Intersection Observer for lazy animations
+    const animatedElements = document.querySelectorAll('.container, .faq-header, h2');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    animatedElements.forEach(el => observer.observe(el));
+  });
+</script>
+
+</body>
+</html>

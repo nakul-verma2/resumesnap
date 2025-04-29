@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Resume</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-dark: rgb(52, 76, 54);
+      --gold-accent: rgb(250, 173, 27);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--green-dark), rgb(40, 60, 42));
+      color: var(--gold-accent);
+      overflow-x: hidden;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      min-height: 100vh;
+      padding: 40px;
+      gap: 40px;
+      box-sizing: border-box;
+    }
+
+    .info-section, .form-section {
+      flex: 1;
+      background: rgba(52, 76, 54, 0.9);
+      border-radius: 20px;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .info-section h1 {
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      color: var(--gold-accent);
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .info-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 18px;
+      color: #f3e6c5;
+    }
+
+    .form-section {
+      background: #fff;
+      color: var(--green-dark);
+    }
+
+    .upload-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .upload-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: var(--green-dark);
+      font-weight: 700;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 8px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    input[type="file"],
+    input[type="text"] {
+      padding: 14px;
+      border: 2px solid rgba(52, 76, 54, 0.7);
+      border-radius: 10px;
+      width: 100%;
+      background: #f8fafc;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: var(--gold-accent);
+      box-shadow: 0 0 8px rgba(250, 173, 27, 0.3);
+      outline: none;
+    }
+
+    input[type="file"]::file-selector-button {
+      background: var(--gold-accent);
+      color: var(--green-dark);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    input[type="file"]::file-selector-button:hover {
+      background: var(--green-dark);
+      color: var(--gold-accent);
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: linear-gradient(90deg, var(--gold-accent), rgb(255, 193, 7));
+      color: var(--green-dark);
+      padding: 14px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--green-dark);
+      color: var(--gold-accent);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Responsive layout */
+    @media screen and (max-width: 960px) {
+      .container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+      }
+
+      .info-section, .form-section {
+        border-radius: 20px;
+        padding: 40px 30px;
+      }
+
+      .upload-container h2 {
+        font-size: 1.6rem;
+      }
+
+      .info-section h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .info-section h1 {
+        font-size: 1.8rem;
+      }
+
+      .info-section p {
+        font-size: 1rem;
+      }
+
+      .upload-container {
+        padding: 0;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="info-section" data-aos="fade-right">
+      <h1 data-aos="fade-up" data-aos-delay="300">Welcome to ResumeSnap</h1>
+      <p data-aos="fade-up" data-aos-delay="500">Upload your resume and receive AI-powered job recommendations tailored to your skills and experiences.</p>
+      <p data-aos="fade-up" data-aos-delay="700">Quick, secure, and effective — take the next step in your career journey today!</p>
+    </div>
+
+    <div class="form-section" data-aos="fade-left">
+      <div class="upload-container">
+        <h2 data-aos="fade-up" data-aos-delay="300">Upload Your Resume</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <label for="job-description">Job Description:</label>
+          <input type="text" name="job-description" id="job-description" placeholder="Enter job description" required>
+
+          <label for="resume">Select Resume:</label>
+          <input type="file" name="resume" id="resume" accept=".pdf,.doc,.docx" required>
+          <p class="note">Accepted formats: .pdf, .doc, .docx</p>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, offset: 200, easing: 'ease-in-out' });
+  </script>
+</body>
+</html>

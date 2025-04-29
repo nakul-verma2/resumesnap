@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume Template Selector</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+      margin: 0;
+      padding: 0;
+      color: #2d3436;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #2d3436;
+      margin-bottom: 10px;
+    }
+    .header p {
+      font-size: 1.2rem;
+      color: #636e72;
+    }
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    .template-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      padding: 20px;
+    }
+    .template-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+    .template-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .template-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2d3436;
+      margin-bottom: 10px;
+    }
+    .template-card p {
+      font-size: 1rem;
+      color: #636e72;
+      margin-bottom: 20px;
+    }
+    .template-card .btn {
+      background: #0984e3;
+      border: none;
+      padding: 10px 25px;
+      font-size: 1rem;
+      border-radius: 25px;
+      color: #fff;
+      transition: background 0.3s;
+    }
+    .template-card .btn:hover {
+      background: #0652dd;
+    }
+    .why-choose {
+      margin: 60px 0;
+      padding: 40px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .why-choose h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #2d3436;
+      margin-bottom: 20px;
+    }
+    .why-choose p {
+      font-size: 1.1rem;
+      color: #636e72;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .coming-soon {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #ff7675, #d63031);
+      color: #fff;
+      border-radius: 15px;
+      margin-top: 40px;
+    }
+    .coming-soon h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .coming-soon p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Choose Your Resume Template</h1>
+      <p>Select from our beautifully designed templates to create a professional resume that stands out.</p>
+    </header>
+
+    <section class="template-grid">
+      <!-- Template Cards -->
+      <div class="template-grid">
+        <div class="template-card">
+          <img src="https://media-hosting.imagekit.io/19e0ca3a0e3f4b81/screenshot_1744950927447.png?Expires=1839558928&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=ho59lo8M9P1b1za1fKbIKpYV7afYizVwCKdLo32RcJRi9dBdt6IK9t-Hg3HUyisRi2E6uZAyNHog~JxuiPSxJKZ5lC3kzN~x2KslPtZFnCf7Drms6bUzo6P2oPzcqPeFD2z4zX1uUGOUjP4ag0dwB-G1yNvoutVoDjwRcJG5bnH9frPO-HYnjfQ9Dj-bVhiV8uBDwhmH-ZxZz1gwSMUlUJZL5-TnEcuvm9oGIspn8rxOvIt2eITJ2tuvsQcnVGLHn7b7gORWAfNyfrSQ-rb2ecVlEPl47xu0Ru9ul0LJH32HIK6lx~0Pdkde55E9bd1si772-QSQfnh2AYGLXifXLw__" alt="Professional Template Preview"/>
+          <h3>Dynamic Professional Blueprint</h3>
+          <p>A vibrant, modern resume design with a gradient header and clean layout for professionalism.</p>
+          <a href="{{ url_for('render_template_page', template_name='classic') }}" class="btn">Select Template</a>
+        </div>
+        <div class="template-card">
+          <img src="https://media-hosting.imagekit.io/9dde7dbb031143cc/screenshot_1744951103396.png?Expires=1839559104&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=qxiaIBpQ3bbqtPcpHn0mDXD07-vpxpqZK6Rfre47MM8y0vWcIx0GM5hxew~vX-P-km0cr7Iz9WhN7qhzX8n4Jvb2IPiMfu5Dtq9UgRjqIL8o2T3U1D-TzW7U7Pg7hfYnEmsiTF5MG6dULJXhHVcHM4~ro-GfVxS96iNfrk5x9-Fqq5iri9jD4ogTKgzl0XpvvyGjBwihMjhzHYMml8e-C2c5sGrrfy5sVhkAUICBeli7im~r5G6po1fB-dkS6-LCSReINAeUcK3DaXLwprpG~UJojfOfNtU3AojWtj3n4mjwAJd9d-lxz-uoS-KOwt0oZezb7Yf4c1-I8ODuXs5GBg__" alt="Midnight Template Preview"/>
+          <h3>Sleek Midnight Elegance</h3>
+          <p>A sophisticated, dark-themed design with a modern layout, perfect for highlighting technical skills and projects with a professional edge.</p>
+          <a href="{{ url_for('render_template_page', template_name='professional') }}" class="btn">Select Template</a>
+        </div>
+        <div class="template-card">
+          <img src="https://media-hosting.imagekit.io/409e6e9a5ebb4276/screenshot_1744951294663.png?Expires=1839559296&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=nZ8YEYQIQWqbNEh06KATkuTEtJxHynUukt46Ph8J80Q233YhArYqctcOZoRw6p5Z5qm553dywHin785JXn5rCZvKjJXGPK1WQbCoR8xYFw090X80F57OEieS~h1qAHMwTGYzSe-rH9fFZ3JL4TMR9FITNmst~yjm2t6UsjBoFC1wN-HWCGml1A3Ds97tozNWUsrmAsLsOo8Ijp7wLLhTB2gsc77PdUR00DfptXDC6wkCrZV3JCo18~K1DpLwJbmleAxTvLtiCd3O4PEjtSdpcI~r6ivyTCQsTuF4qhGKRUV1OUuXiMUTkc4XmZY~NuLWWhnA8Vw2756hgotbywqBEA__" alt="Elegant Creative Template Preview"/>
+          <h3>Vibrant Red Accent</h3>
+          <p>A striking, modern design with a bold red accent and clean layout, ideal for showcasing technical expertise and project highlights with flair.</p>
+          <a href="{{ url_for('render_template_page', template_name='elegant') }}" class="btn">Select Template</a>
+        </div>
+        <div class="template-card">
+          <img src="https://media-hosting.imagekit.io/3fc0ff76600a4c60/screenshot_1744951169515.png?Expires=1839559170&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Td09rYWeUEj7ntnUaCayeNX7jJBbT~sS1jVbEGFypV8qiHYQq-HJ2lBpb-cwTsOcJL1wX-axYrTL62-6nhNI55L5kidlOaN9i3K8tbCE1lnJYlNpg29Aempo4h49ny9wsSQJJdumE6hg3fpC3ADkNEBYplcl8mJmkwLFn7G6ec8pc0Txi1vjjUYNLk8WTNJJiy2~I5WKckUpaah0hfWamndACU2elWsrIMt9R2DfNHYJRslwtzV6NlOMAi4OSYIBMiWGy9-o3nQESK~VESkUIyJxWWBQdOAH2x5TGSFBzHPKDjroeHdEnhkoYGxpJ8dX9Zd24mzr6bOfDZ-m1jruHQ__" alt="Luxurious Art Deco Template Preview"/>
+          <h3>Elegant Purple Edge</h3>
+          <p>A refined, purple-accented design with a sleek layout, perfect for presenting technical skills and projects with a touch of sophistication.</p>
+          <a href="{{ url_for('render_template_page', template_name='luxurious') }}" class="btn">Select Template</a>
+        </div>
+        <div class="template-card">
+          <img src="https://media-hosting.imagekit.io/4c546958a3cf4fbe/screenshot_1744951248784.png?Expires=1839559250&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=yXESTfyLTYEx6OxGwf69uQ6hhYUErcrF~pM8zOls9SgW-a9fAgn6X8ONQ~pMi6~rI-QSj3KyzXC~b0mD6aDT9ut4UF3-cyRJ30pCEvijv4cyzTVrv1bmLXfqaP5GqVGk2Tqk5aNGslC-UPOB6Exo4NOTu57QmlTc2DdYzob5ZjkCMShTuqQifyontAPgRe2rwyRr2qtI-koucd57n~9sHS1R6AHkW5O9WuwHRS4UZL7ae0vevqohxfJZN3PgqOdVM0MgXiJl21z5466K~RRRbksp3EvXXDcpctwSldHcNCiql7~6Adf00K1IaTk8AVDx7VnBOuqxQcdbUdKjQq9vlg__" alt="Creative Bold Template Preview"/>
+          <h3>Golden Professional Glow</h3>
+          <p>A luxurious, gold-accented design with a warm and polished layout, ideal for highlighting expertise and projects with a touch of elegance</p>
+          <a href="{{ url_for('render_template_page', template_name='creative') }}" class="btn">Select Template</a>
+        </div>
+        <div class="template-card">
+          <img src="https://media-hosting.imagekit.io/1ac76f44ef134b57/screenshot_1744951053570.png?Expires=1839559054&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=HStn-bpZOi-FiUQ0H~Ged3YvtMXdP80SmVf~z-sSJY~ycGYqAdkcat84IShrsRt9flhlvZ8nhKQ65haarhjvySUVOBas1xh5l4HWzq9urR9uOgo72yUW2ig3yUwSjiyuOg6XqiNU5-w09OHx5LdgZffJFFRY1MIXsxWu7huXt70C-i5NGNo7xVv-qzc-S3lzhra8W0cCFgWWn5Hf81KLXlyckKVwxtSsbl7kyC7hHgQwV7NAioqcaXCGIc1abyGq4mKy7V16XcosFReHaVJw8~qSdeS3UjptEhejuDgv2~dVSB5MkEsFteZybrcE64q-BaIKZFKlzI1FAzYLCidYeQ__" alt="Modern Minimalist Template Preview"/>
+          <h3>Modern Tech Horizon</h3>
+          <p>A sleek, tech-inspired design with a vibrant blue header and structured layout, perfect for showcasing technical expertise and innovation.</p>
+          <a href="{{ url_for('render_template_page', template_name='modern') }}" class="btn">Select Template</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-choose">
+      <h2>Why Choose Our Templates</h2>
+      <p>Our templates are crafted to help you make a lasting impression. Here's why they stand out:</p>
+      <p><strong>Professional Design:</strong> Created with modern aesthetics to fit various industries.</p>
+      <p><strong>Easy Customization:</strong> Input your data and generate a resume in minutes.</p>
+      <p><strong>PDF Export:</strong> Download your resume in a high-quality, print-ready format.</p>
+    </section>
+
+    <section class="coming-soon">
+      <h2>More Templates Coming Soon</h2>
+      <p>We're working on exciting new designs to help you craft the perfect resume. Stay tuned for more stunning templates!</p>
+    </section>
+  </main>
+</body>
+</html>
